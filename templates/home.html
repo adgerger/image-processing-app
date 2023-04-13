@@ -19,18 +19,17 @@
 
 
     <div class="sidebar">
-      <button onclick="displayInfoHandler()">Display Details</button>
-      <button>Button 2</button>
-      <button>Button 3</button>
-      <button>Button 4</button>
-      <button>Button 5</button>
-      <button>Button 6</button>
-      <button>Button 7</button>    
-      <button>Button 8</button>
-      <button>Button 9</button>
-      <button>Button 10</button>
-      <button>Button 11</button>
-      <button>Button 12</button>
+      <button class="operation-button" id="displayInfoButton">Display Details</button>
+      <button class="operation-button" id="cropButton">Crop</button>
+      <button class="operation-button" id="flipButton">Flip</button>
+      <button class="operation-button" id="scaleButton" >Scale</button>
+      <button class="operation-button" id="rotateButton">Rotate</button>
+      <button class="operation-button" id="linearMapButton">Linear Gray Level Map</button>
+      <button class="operation-button" id="powerLevelMapButton">Power-law Map</button>
+      <button class="operation-button" id="calculateHistogramButton">Calculate Histogram</button>    
+      <button class="operation-button" id="equalizeHistogramButton">Histogram Equalization</button>
+      <button class="operation-button" id="convoluteButton">Convolute</button>
+      <button class="operation-button" id="nonLinearFilteringButton">Non-linear Filter</button>
   
   
       <div class="sidebar-buttons">
@@ -40,7 +39,105 @@
       </div>
 
     </div>
-      
+    
+    <div class="popup-container" id="displayInfoPopup">
+      <div class="popup">
+        <h2>Image Information:</h2>
+        <p>This is some text in my pop-up.</p>
+        <button class="close-button">Close</button>
+      </div>
+    </div>    
+
+
+    <div class="popup-container" id="cropPopup">
+      <div class="popup">
+        <h2>Crop the image</h2>
+        <p>This is some text in my pop-up.</p>
+        <button class="close-button">Close</button>
+      </div>
+    </div>    
+
+
+    <div class="popup-container" id="flipPopup">
+      <div class="popup">
+        <h2>Flip the image</h2>
+        <p>This is some text in my pop-up.</p>
+        <button class="close-button">Close</button>
+      </div>
+    </div>
+
+
+    <div class="popup-container" id="scalePopup">
+      <div class="popup">
+        <h2>Scale the image</h2>
+        <p>This is some text in my pop-up.</p>
+        <button class="close-button">Close</button>
+      </div>
+    </div>
+
+
+    <div class="popup-container" id="rotatePopup">
+      <div class="popup">
+        <h2>Rotate the image</h2>
+        <p>This is some text in my pop-up.</p>
+        <button class="close-button">Close</button>
+      </div>
+    </div>
+
+
+    <div class="popup-container" id="linearMapPopup">
+      <div class="popup">
+        <h2>Linear Gray Level Map</h2>
+        <p>This is some text in my pop-up.</p>
+        <button class="close-button">Close</button>
+      </div>
+    </div>
+
+
+    <div class="popup-container" id="powerLevelMapPopup">
+      <div class="popup">
+        <h2>Power-law Map</h2>
+        <p>This is some text in my pop-up.</p>
+        <button class="close-button">Close</button>
+      </div>
+    </div>
+
+
+    <div class="popup-container" id="calculateHistogramPopup">
+      <div class="popup">
+        <h2>Calculate image histogram</h2>
+        <p>This is some text in my pop-up.</p>
+        <button class="close-button">Close</button>
+      </div>
+    </div>
+
+
+    <div class="popup-container" id="equalizeHIstogramPopup">
+      <div class="popup">
+        <h2>Perform histogram normalization</h2>
+        <p>This is some text in my pop-up.</p>
+        <button class="close-button">Close</button>
+      </div>
+    </div>
+
+
+    <div class="popup-container" id="convolutePopup">
+      <div class="popup">
+        <h2>Perform convolution on image</h2>
+        <p>This is some text in my pop-up.</p>
+        <button class="close-button">Close</button>
+      </div>
+    </div>
+    
+
+    <div class="popup-container" id="nonLinearFilteringPopup">
+      <div class="popup">
+        <h2>Apply non-linear filtering on image</h2>
+        <p>This is some text in my pop-up.</p>
+        <button class="close-button">Close</button>
+      </div>
+    </div>
+
     <div class="main-content">
       <img src="../static/img/image.jpg" id="currentImage" alt="Image">
     </div>
