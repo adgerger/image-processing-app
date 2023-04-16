@@ -190,13 +190,15 @@
     </div>
 
 
-    <div class="popup-container" id="equalizeHIstogramPopupContainer">
+    <div class="popup-container" id="equalizeHistogramPopupContainer">
       <div class="popup" id="equalizeHistogramPopup">
         <div class="close-button-container">
           <button class="close-button">X</button>
         </div>
         <h2>Perform histogram normalization</h2>
-        <p>This is some text in my pop-up.</p>
+        <div class="orientation-button-container">
+          <button class="orientation-button" id="verticalButton" onclick="equalizeHistogramHandler()" >Histogram Equalization</button>
+        </div>
       </div>
     </div>
 

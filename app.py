@@ -21,10 +21,12 @@ app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 # POST requests 
 
 new_filename = ""
+rgb = False
 
 @app.route('/upload', methods=['POST'])
 def upload_image():
     global new_filename
+    global rgb
 
     # Check if there's an image in the request
     if 'image' not in request.files:
@@ -186,6 +188,17 @@ def calculateHistogram():
 @app.route('/histogramEqualizeImage', methods=['POST'])
 def equalizeHistogram():
     print("Post request have been invoked in app.js for histogram equalizing an image. ")
+   
+    img = cv2.imread("static/img/" + new_filename)
+
+    output_image = normalize_histogram(img)
+
+    print("Calculated histogram equalization")
+
+    cv2.imwrite("static/img/" + new_filename, output_image)
+
+
+
     # Code to run the specific function goes here
     return "Function executed successfully"
 
@@ -193,6 +206,7 @@ def equalizeHistogram():
 @app.route('/convoluteImage', methods=['POST'])
 def convoluteImage():
     global new_filename
+    global rgb
     
     print("Post request have been invoked in app.js for applying convolution to an image. ")
     
@@ -203,7 +217,7 @@ def convoluteImage():
 
     kernel_array = string_to_2d_array(kernel)
     
-    if color_type == "true":
+    if rgb == True:
         output_image = convolution_coloured(img, kernel_array)
     else:
         output_image = convolution(img, kernel_array)
@@ -217,6 +231,7 @@ def convoluteImage():
 @app.route('/filterImage', methods=['POST'])
 def filterImage():
     global new_filename
+    global rgb
     
     print("Post request have been invoked in app.js for applying non-linear filterin to an image. ")
     # Code to run the specific function goes here
@@ -229,7 +244,7 @@ def filterImage():
     
     window_size = string_to_tuple(window)
     
-    if color_type == "true":
+    if rgb == True:
         output_image = filtering_rgb(img, window_size, filter_type)
     else:
         output_image = filtering_grayscale(img, window_size, filter_type)
