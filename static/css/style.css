@@ -109,30 +109,93 @@ img {
     display: none;
     justify-content: center;
     align-items: center;
-  }
-  
-  .popup {
-    background-color: #fff;
+}
+
+.popup {
+    background-color: #333;
     padding: 20px;
     border-radius: 5px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
     text-align: center;
-  }
-  
-  .close-button {
-    background-color: #ddd;
-    color: #333;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 5px;
-    font-size: 16px;
+    position: relative;
+}
+
+.popup h2 {
+    color: white;
+}
+
+.popup p {
+    color: white;
+}
+
+.popup span {
+    color: white;
+}
+
+
+.close-button-container {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+}
+
+.close-button {
+    background-color: transparent;
+    color: white;
+    padding: 0px;
+    font-size: 18px;
     cursor: pointer;
-    transition: background-color 0.2s ease;
-  }
-  
-  .close-button:hover {
-    background-color: #aaa;
-  }
+}
+
+.orientation-button-container {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    align-items: center;
+}
+
+.orientation-button {
+    padding: 10px 20px;
+    font-size: 16px;
+    text-align: center;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    background-color: #444;
+    color: white;
+    cursor: pointer;
+}
+
+
+.input-container {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 10%;
+}
+
+.input-group {
+    display: flex;
+    gap: 5px;
+    align-items: center;
+    color: white;
+}
+
+.parameter-input {
+    margin-top: 5px;
+    padding: 5px 10px;
+    font-size: 14px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+}
+
+
+.input-group select {
+    width: 70%;
+}
+
+
 
 
 

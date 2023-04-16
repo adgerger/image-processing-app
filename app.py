@@ -14,8 +14,9 @@ def index():
 @app.route('/displayImageInfo', methods=['POST'])
 def displayImageInfo():
     print("Post request have been invoked in app.js for displaying image information. ")
+
     # Code to run the specific function goes here
-    return "Function executed successfully"
+    return "Test image data"
 
 
 @app.route('/cropImage', methods=['POST'])
@@ -28,8 +29,15 @@ def cropImage():
 @app.route('/flipImage', methods=['POST'])
 def flipImage():
     print("Post request have been invoked in app.js for flipping an image.")
+
+    data = request.json['type']
+    
+    # Here flip the image according to the type.
+
+    
+    print(data)  
     # Code to run the specific function goes here
-    return "Function executed successfully"
+    return "Image succesfully flipped"
 
 
 @app.route('/scaleImage', methods=['POST'])
@@ -90,7 +98,7 @@ def filterImage():
 
 
 if __name__ == "__main__":
-    app.run()
+    app.run(debug=True)
 
 
 

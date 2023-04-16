@@ -40,101 +40,213 @@
 
     </div>
     
-    <div class="popup-container" id="displayInfoPopup">
-      <div class="popup">
-        <h2>Image Information:</h2>
-        <p>This is some text in my pop-up.</p>
-        <button class="close-button">Close</button>
+    <div class="popup-container" id="displayInfoPopupContainer">
+      <div class="popup" id="displayInfoPopup">
+        <div class="close-button-container">
+          <button class="close-button">X</button>
+        </div>
+        <h2>Image Information</h2>
+        <p>Image size: <span id="imageSizePlaceholder"></span></p>
+        <p>Number of pixels: <span id="numPixelsPlaceholder"></span></p>
+        <p>Image type: <span id="imageTypePlaceholder"></span></p>
+        <p>Color: <span id="colorPlaceholder"></span></p>
       </div>
     </div>    
 
 
-    <div class="popup-container" id="cropPopup">
-      <div class="popup">
+    <div class="popup-container" id="cropPopupContainer">
+      <div class="popup" id="cropPopup">
+        <div class="close-button-container">
+          <button class="close-button">X</button>
+        </div>
         <h2>Crop the image</h2>
         <p>This is some text in my pop-up.</p>
-        <button class="close-button">Close</button>
       </div>
     </div>    
 
 
-    <div class="popup-container" id="flipPopup">
-      <div class="popup">
+    <div class="popup-container" id="flipPopupContainer">
+      <div class="popup" id="flipPopup">
+        <div class="close-button-container">
+          <button class="close-button">X</button>
+        </div>
         <h2>Flip the image</h2>
-        <p>This is some text in my pop-up.</p>
-        <button class="close-button">Close</button>
+        
+        <div class="orientation-button-container">
+          <button class="orientation-button" id="verticalButton" onclick="flipHandler('vertical')" >Vertical</button>
+          <button class="orientation-button" id="horizontalButton" onclick="flipHandler('horizontal')">Horizontal</button>
+        </div>
+
       </div>
     </div>
 
 
-    <div class="popup-container" id="scalePopup">
-      <div class="popup">
+    <div class="popup-container" id="scalePopupContainer">
+      <div class="popup" id="scalePopup">
+        <div class="close-button-container">
+          <button class="close-button">X</button>
+        </div>
         <h2>Scale the image</h2>
-        <p>This is some text in my pop-up.</p>
-        <button class="close-button">Close</button>
+
+
+        <form id="dimensionsForm" onsubmit="scaleHandler(event)">
+          <div class="input-container">
+              <div class="input-group">
+                <label for="outputHeight">Output Height:</label>
+                <input type="text" id="outputHeight" name="outputHeight" class="parameter-input">
+              </div>
+              
+              <div class="input-group">
+                <label for="outputWidth">Output Width:</label>
+                <input type="text" id="outputWidth" name="outputWidth" class="parameter-input">
+              </div>
+          </div>
+          <button class="orientation-button" type="submit">Submit</button>
+        </form>
+      
       </div>
     </div>
 
 
-    <div class="popup-container" id="rotatePopup">
-      <div class="popup">
+    <div class="popup-container" id="rotatePopupContainer">
+      <div class="popup" id="rotatePopup">
+        <div class="close-button-container">
+          <button class="close-button">X</button>
+        </div>
         <h2>Rotate the image</h2>
-        <p>This is some text in my pop-up.</p>
-        <button class="close-button">Close</button>
+
+        <form id="rotationForm" onsubmit="rotateHandler(event)">
+          <div class="input-container">
+              <div class="input-group">
+                <label for="rotationAngle">Rotation Angle:</label>
+                <input type="text" id="rotationAngle" name="rotationAngle" class="parameter-input">
+              </div>
+          </div>
+          <button class="orientation-button" type="submit">Submit</button>
+        </form>
+      
       </div>
     </div>
 
 
-    <div class="popup-container" id="linearMapPopup">
-      <div class="popup">
+    <div class="popup-container" id="linearMapPopupContainer">
+      <div class="popup" id="linearMapPopup">
+        <div class="close-button-container">
+          <button class="close-button">X</button>
+        </div>
         <h2>Linear Gray Level Map</h2>
-        <p>This is some text in my pop-up.</p>
-        <button class="close-button">Close</button>
+        <form id="linearMapForm" onsubmit="linearMapHandler(event)">
+          <div class="input-container">
+              <div class="input-group">
+                <label for="aCoefficient">a:</label>
+                <input type="text" id="aCoefficient" name="aCoefficient" class="parameter-input">
+              </div>
+              
+              <div class="input-group">
+                <label for="bCoefficient">b:</label>
+                <input type="text" id="bCoefficient" name="bCoefficient" class="parameter-input">
+              </div>
+          </div>
+          <button class="orientation-button" type="submit">Submit</button>
+        </form>
       </div>
     </div>
 
 
-    <div class="popup-container" id="powerLevelMapPopup">
-      <div class="popup">
+    <div class="popup-container" id="powerLevelMapPopupContainer">
+      <div class="popup" id="powerLevelMapPopup">
+        <div class="close-button-container">
+          <button class="close-button">X</button>
+        </div>
         <h2>Power-law Map</h2>
-        <p>This is some text in my pop-up.</p>
-        <button class="close-button">Close</button>
+
+        <form id="powerLevelMapForm" onsubmit="powerLawMapHandler(event)">
+          <div class="input-container">
+              <div class="input-group">
+                <label for="cCoefficient">c:</label>
+                <input type="text" id="cCoefficient" name="cCoefficient" class="parameter-input">
+              </div>
+              
+              <div class="input-group">
+                <label for="gamma">Γ:</label>
+                <input type="text" id="gamma" name="gamma" class="parameter-input">
+              </div>
+          </div>
+          <button class="orientation-button" type="submit">Submit</button>
+        </form>
+      
       </div>
     </div>
 
 
-    <div class="popup-container" id="calculateHistogramPopup">
-      <div class="popup">
+    <div class="popup-container" id="calculateHistogramPopupContainer">
+      <div class="popup" id="calculateHistogramPopup">
+        <div class="close-button-container">
+          <button class="close-button">X</button>
+        </div>
         <h2>Calculate image histogram</h2>
         <p>This is some text in my pop-up.</p>
-        <button class="close-button">Close</button>
       </div>
     </div>
 
 
-    <div class="popup-container" id="equalizeHIstogramPopup">
-      <div class="popup">
+    <div class="popup-container" id="equalizeHIstogramPopupContainer">
+      <div class="popup" id="equalizeHistogramPopup">
+        <div class="close-button-container">
+          <button class="close-button">X</button>
+        </div>
         <h2>Perform histogram normalization</h2>
         <p>This is some text in my pop-up.</p>
-        <button class="close-button">Close</button>
       </div>
     </div>
 
 
-    <div class="popup-container" id="convolutePopup">
-      <div class="popup">
+    <div class="popup-container" id="convolutePopupContainer">
+      <div class="popup" id="convolutePopup">
+        <div class="close-button-container">
+          <button class="close-button">X</button>
+        </div>
         <h2>Perform convolution on image</h2>
-        <p>This is some text in my pop-up.</p>
-        <button class="close-button">Close</button>
+        
+        <form id="rotationForm" onsubmit="convolutionHandler(event)">
+          <div class="input-container">
+              <div class="input-group">
+                <label for="kernel">Kernel (form: [a,b,c;d,e,f;g,h,i]):</label>
+                <input type="text" id="kernel" name="kernel" class="parameter-input">
+              </div>
+          </div>
+          <button class="orientation-button" type="submit">Submit</button>
+        </form>
+
       </div>
     </div>
     
 
-    <div class="popup-container" id="nonLinearFilteringPopup">
-      <div class="popup">
+    <div class="popup-container" id="nonLinearFilteringPopupContainer">
+      <div class="popup" id="nonLinearFilteringPopup">
+        <div class="close-button-container">
+          <button class="close-button">X</button>
+        </div>
         <h2>Apply non-linear filtering on image</h2>
-        <p>This is some text in my pop-up.</p>
-        <button class="close-button">Close</button>
+        <form id="powerLevelMapForm" onsubmit="nonLinearFilterHandler(event)">
+          <div class="input-container">
+              <div class="input-group">
+                <label for="typeSelect">Window Size:</label>
+                <select id="typeSelect" name="typeSelect" class="parameter-input">
+                  <option value="min">min</option>
+                  <option value="max">max</option>
+                  <option value="median">median</option>
+               </select>
+              </div>
+              
+              <div class="input-group">
+                <label for="windowSize">Window Size:</label>
+                <input type="text" id="windowSize" name="windowSize" class="parameter-input">
+              </div>
+              
+          </div>
+          <button class="orientation-button" type="submit">Submit</button>
+        </form>
       </div>
     </div>
 
@@ -142,11 +254,7 @@
       <img src="../static/img/image.jpg" id="currentImage" alt="Image">
     </div>
 
-
   </div>
-  
-
-
 
 </body>
 </html>

@@ -1,4 +1,6 @@
 
+
+
 window.onload = function() {
 
     /* Get all the popups, operation buttons and close buttons in the document. */
@@ -9,6 +11,9 @@ window.onload = function() {
     /* Make it so that every operation button opens up it's respective popup when clicked. */
     allButtons.forEach(function(element, index) {
         element.addEventListener('click', () => {
+            if (element.id == 'displayInfoButton') {
+              displayInfoHandler();
+            }
             allPopups[index].style.display = 'flex';
         });
     });
@@ -35,7 +40,14 @@ window.onload = function() {
           }
         })
         .then(response => response.text())
-        .then(result => console.log(result))
+        .then(result => {
+
+          document.getElementById('imageSizePlaceholder').textContent = '1024 x 768';
+          document.getElementById('numPixelsPlaceholder').textContent = '786,432';
+          document.getElementById('imageTypePlaceholder').textContent = result;
+          document.getElementById('colorPlaceholder').textContent = 'RGB';
+
+        })
         .catch(error => console.error(error));
       }
     
@@ -47,7 +59,8 @@ window.onload = function() {
             method: 'POST',
             headers: {
               'Content-Type': 'application/json;charset=UTF-8'
-            }
+            },
+            body: JSON.stringify({ data: 'lol' })
           })
           .then(response => response.text())
           .then(result => console.log(result))
@@ -55,84 +68,6 @@ window.onload = function() {
     
       }
     
-      
-    function flipHandler() {
-        console.log("flipHandler invoked on javascript.");
-    
-        fetch('/flipImage', {
-            method: 'POST',
-            headers: {
-              'Content-Type': 'application/json;charset=UTF-8'
-            }
-          })
-          .then(response => response.text())
-          .then(result => console.log(result))
-          .catch(error => console.error(error));
-    
-      }
-    
-    
-    function scaleHandler() {
-        console.log("displayInfoHandler invoked on javascript.");
-    
-        fetch('/scaleImage', {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json;charset=UTF-8'
-          }
-        })
-        .then(response => response.text())
-        .then(result => console.log(result))
-        .catch(error => console.error(error));
-      }
-      
-    
-    function rotateHandler() {
-        console.log("rotateHandler invoked on javascript.");
-    
-        fetch('/rotateImage', {
-            method: 'POST',
-            headers: {
-              'Content-Type': 'application/json;charset=UTF-8'
-            }
-          })
-          .then(response => response.text())
-          .then(result => console.log(result))
-          .catch(error => console.error(error));
-    
-      }
-    
-    
-    function linearMapHandler() {
-        console.log("linearMapHandler invoked on javascript.");
-    
-        fetch('/linearMapImage', {
-            method: 'POST',
-            headers: {
-              'Content-Type': 'application/json;charset=UTF-8'
-            }
-          })
-          .then(response => response.text())
-          .then(result => console.log(result))
-          .catch(error => console.error(error));
-    
-      }
-    
-    
-    function powerLawMapHandler() {
-        console.log("powerLawMapHandler invoked on javascript.");
-    
-        fetch('/powerLawMapImage', {
-            method: 'POST',
-            headers: {
-              'Content-Type': 'application/json;charset=UTF-8'
-            }
-          })
-          .then(response => response.text())
-          .then(result => console.log(result))
-          .catch(error => console.error(error));
-    
-      }
     
     
     function histogramHandler() {
@@ -166,39 +101,180 @@ window.onload = function() {
     
       }
     
-    
-    function convolutionHandler() {
-        console.log("convolutionHandler invoked on javascript.");
-    
-        fetch('/convoluteImage', {
-            method: 'POST',
-            headers: {
-              'Content-Type': 'application/json;charset=UTF-8'
-            }
-          })
-          .then(response => response.text())
-          .then(result => console.log(result))
-          .catch(error => console.error(error));
-    
-      }
-    
-    
-    function nonLinearFilterHandler() {
-        console.log("nonLinearFilterHandler invoked on javascript.");
-    
-        fetch('/filterImage', {
-            method: 'POST',
-            headers: {
-              'Content-Type': 'application/json;charset=UTF-8'
-            }
-          })
-          .then(response => response.text())
-          .then(result => console.log(result))
-          .catch(error => console.error(error));
-    
-      }
 
 };
+
+    
+function nonLinearFilterHandler(event) {
+  event.preventDefault();
+  
+  console.log("nonLinearFilterHandler invoked on javascript.");
+
+  const windowSize = document.getElementById("windowSize").value;
+  const typeSelect = document.getElementById("typeSelect").value;
+
+  console.log("Window Size:", windowSize);
+  console.log("Type:", typeSelect);
+
+  fetch('/filterImage', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json;charset=UTF-8'
+      }
+    })
+    .then(response => response.text())
+    .then(result => console.log(result))
+    .catch(error => console.error(error));
+
+}
+    
+function convolutionHandler(event) {
+  event.preventDefault(); 
+
+  console.log("convolutionHandler invoked on javascript.");
+
+  const kernel = document.getElementById("kernel").value;
+  console.log("kernel:", kernel);
+
+
+  fetch('/convoluteImage', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json;charset=UTF-8'
+      }
+    })
+    .then(response => response.text())
+    .then(result => console.log(result))
+    .catch(error => console.error(error));
+
+}
+
+function powerLawMapHandler(event) {
+  event.preventDefault(); 
+
+  console.log("powerLawMapHandler invoked on javascript.");
+
+  const cCoefficient = document.getElementById("cCoefficient").value;
+  const gamma = document.getElementById("gamma").value;
+
+  console.log("a:", cCoefficient);
+  console.log("b:", gamma);
+
+  fetch('/powerLawMapImage', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json;charset=UTF-8'
+      }
+    })
+    .then(response => response.text())
+    .then(result => console.log(result))
+    .catch(error => console.error(error));
+
+}
+
+    
+function linearMapHandler(event) {
+  event.preventDefault();
+
+  console.log("linearMapHandler invoked on javascript.");
+
+  const aCoefficient = document.getElementById("aCoefficient").value;
+  const bCoefficient = document.getElementById("bCoefficient").value;
+
+  console.log("a:", aCoefficient);
+  console.log("b:", bCoefficient);
+
+
+  fetch('/linearMapImage', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json;charset=UTF-8'
+      }
+    })
+    .then(response => response.text())
+    .then(result => console.log(result))
+    .catch(error => console.error(error));
+
+}
+
+    
+function rotateHandler(event) {
+  event.preventDefault(); 
+
+  console.log("rotateHandler invoked on javascript.");
+
+  const rotationAngle = document.getElementById("rotationAngle").value;
+
+  // Process the input values as needed
+  console.log("Output Height:", rotationAngle);
+
+
+
+  fetch('/rotateImage', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json;charset=UTF-8'
+      }
+    })
+    .then(response => response.text())
+    .then(result => {
+    
+      console.log(result);
+
+    })
+    .catch(error => console.error(error));
+    window.location.reload()
+}
+
+function scaleHandler(event) {
+
+  event.preventDefault(); 
+
+  const outputHeight = document.getElementById("outputHeight").value;
+  const outputWidth = document.getElementById("outputWidth").value;
+
+  console.log("Output Height:", outputHeight);
+  console.log("Output Width:", outputWidth);
+
+  console.log("scaleHandler invoked on javascript.");
+
+  fetch('/scaleImage', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json;charset=UTF-8'
+    }
+  })
+  .then(response => response.text())
+  .then(result => console.log(result))
+  .catch(error => console.error(error));
+  window.location.reload()
+
+}
+
+
+function flipHandler(flipType) {
+  console.log("flipHandler invoked on javascript.");
+
+  fetch('/flipImage', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json;charset=UTF-8'
+      },
+      body: JSON.stringify({ type: flipType })
+
+    })
+    .then(response => response.text())
+    .then(result => {
+      
+      console.log(result);
+
+    })
+    .catch(error => console.error(error));
+
+    window.location.reload()
+
+
+}
 
 
 
