@@ -298,4 +298,34 @@ def rgb_to_grayscale(image):
     return grayscale_image
 
 
+def string_to_2d_array(s):
+    # Remove square brackets
+    s = s.strip("[]")
+    
+    # Split the string into rows
+    rows = s.split(";")
+    
+    # Split each row into elements and convert to desired data type (e.g., float)
+    data = [list(map(float, row.split(","))) for row in rows]
+    
+    # Convert the list of lists into a NumPy array
+    array = np.array(data)
+    
+    return array
+
+
+def string_to_tuple(s):
+    # Remove parentheses
+    s = s.strip("()")
+    
+    # Split the string into elements and convert to the desired data type (e.g., int)
+    elements = list(map(int, s.split(",")))
+    
+    # Create a tuple from the elements
+    result = tuple(elements)
+    
+    return result
+
+
+
 

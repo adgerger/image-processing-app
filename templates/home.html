@@ -240,7 +240,7 @@
               </div>
               
               <div class="input-group">
-                <label for="windowSize">Window Size:</label>
+                <label for="windowSize">Window Size of form (a,b):</label>
                 <input type="text" id="windowSize" name="windowSize" class="parameter-input">
               </div>
               
@@ -251,7 +251,11 @@
     </div>
 
     <div class="main-content">
-      <img src="../static/img/image.jpg" id="currentImage" alt="Image">
+      {% if img_name %}
+      <img src="{{ url_for('static', filename='img/' + img_name) }}" id="currentImage" alt="Image1">
+      {% else %}
+      <p>No image found.</p>
+      {% endif %}
     </div>
 
   </div>

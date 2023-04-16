@@ -10,7 +10,7 @@ def main():
     print("1. Rotate")
     print("2. Exit")
 
-    image = cv2.imread('input_image.jpeg')
+    image = cv2.imread('../static/img/image.jpeg')
 
     usr_input = input()
     if usr_input == "1":

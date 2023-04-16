@@ -19,10 +19,12 @@ body {
 }
 
 
-#currentImage {
-    max-width: 100vh;
-    max-height: 100vh;
+img {
+    max-width: 90vh;
+    max-height: 90vh;
 }
+
+
 
 .sidebar {
     position: relative;

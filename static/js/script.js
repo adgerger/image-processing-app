@@ -1,6 +1,4 @@
 
-
-
 window.onload = function() {
 
     /* Get all the popups, operation buttons and close buttons in the document. */
@@ -120,10 +118,16 @@ function nonLinearFilterHandler(event) {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json;charset=UTF-8'
-      }
+      },
+      body: JSON.stringify({ window: windowSize, type: typeSelect, color: 'false'})
     })
     .then(response => response.text())
-    .then(result => console.log(result))
+    .then(result => {
+      
+      console.log(result);
+      window.location.reload();
+    
+    })
     .catch(error => console.error(error));
 
 }
@@ -136,15 +140,20 @@ function convolutionHandler(event) {
   const kernel = document.getElementById("kernel").value;
   console.log("kernel:", kernel);
 
-
   fetch('/convoluteImage', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json;charset=UTF-8'
-      }
+      },
+      body: JSON.stringify({ kernel: kernel, color: 'false' })
     })
     .then(response => response.text())
-    .then(result => console.log(result))
+    .then(result => {
+    
+      console.log(result)
+      window.location.reload()
+    
+    })
     .catch(error => console.error(error));
 
 }
@@ -164,10 +173,17 @@ function powerLawMapHandler(event) {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json;charset=UTF-8'
-      }
+      },
+      body: JSON.stringify({ c: cCoefficient, gamma: gamma })
+
     })
     .then(response => response.text())
-    .then(result => console.log(result))
+    .then(result => {
+
+      console.log(result)
+      window.location.reload()
+    
+    })
     .catch(error => console.error(error));
 
 }
@@ -189,10 +205,17 @@ function linearMapHandler(event) {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json;charset=UTF-8'
-      }
+      },
+      body: JSON.stringify({ a: aCoefficient, b: bCoefficient })
     })
     .then(response => response.text())
-    .then(result => console.log(result))
+    .then(result => {
+      
+      console.log(result);
+
+      window.location.reload()
+
+    })
     .catch(error => console.error(error));
 
 }
@@ -214,16 +237,19 @@ function rotateHandler(event) {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json;charset=UTF-8'
-      }
+      },
+      body: JSON.stringify({ angle: rotationAngle})
+
     })
     .then(response => response.text())
     .then(result => {
     
       console.log(result);
+      window.location.reload()
+
 
     })
     .catch(error => console.error(error));
-    window.location.reload()
 }
 
 function scaleHandler(event) {
@@ -242,12 +268,18 @@ function scaleHandler(event) {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json;charset=UTF-8'
-    }
+    },
+    body: JSON.stringify({ height: outputHeight, width: outputWidth })
+
   })
   .then(response => response.text())
-  .then(result => console.log(result))
+  .then(result => {
+      
+      console.log(result);
+      window.location.reload();
+
+  })
   .catch(error => console.error(error));
-  window.location.reload()
 
 }
 
@@ -267,11 +299,11 @@ function flipHandler(flipType) {
     .then(result => {
       
       console.log(result);
+      window.location.reload()
 
     })
     .catch(error => console.error(error));
 
-    window.location.reload()
 
 
 }
