@@ -1,87 +1,13 @@
-﻿<a name="br1"></a>PROGRAM DOCUMENTATION Author: Dogu Gerger (dgerger@uoguelph.ca)
-
-CIS\*4720 – Image Processing and Vision
- Winter 2023
+﻿PROGRAM DOCUMENTATION Author: Dogu Gerger
 
 
 
 
 
-<a name="br2"></a>Table of Contents
-
-Section 1: User’s Manual ..................................................................................................................... 3
-
-Section 1.1: What the program does ................................................................................................. 3
-
-Section 1.2: How to run the program................................................................................................. 3
-
-Section 1.3: How to use the program................................................................................................. 4
-
-Section 2: Technical Discussion ............................................................................................................ 4
-
-Section 2.1 How the Toolbox Operates.............................................................................................. 4
-
-Section 2.2 Technical Discussion on Different Functionalities........................................................... 4
-
-Section 2.2.1: Technical Discussion: Common algorithms used ................................................... 4
-
-Section 2.2.2: Technical Discussion: Crop an image ...................................................................... 5
-
-Section 2.2.3: Technical Discussion: Flip an image......................................................................... 5
-
-Section 2.2.4: Technical Discussion: Scale an image ..................................................................... 5
-
-Section 2.2.5: Technical Discussion: Rotate and image ................................................................. 7
-
-Section 2.2.6: Technical Discussion: Gray-level mappings ............................................................ 6
-
-Section 2.2.7: Technical Discussion: Histogram calculations ......................................................... 6
-
-Section 2.2.8: Technical Discussion: Convolution .......................................................................... 6
-
-Section 2.2.9: Technical Discussion: Non-linear filtering ............................................................... 7
-
-Section 3: Discussion of Results and Future Work............................................................................... 8
-
-Section 3.1 Assumptions .................................................................................................................... 8
-
-Section 3.2 Limitations ....................................................................................................................... 8
-
-Section 3.3 Testing ............................................................................................................................. 8
-
-Section 3.3.1: Testing methods and data used ............................................................................. 9
-
-Section 3.3.2: Testing: Crop an image ........................................................................................... 9
-
-Section 3.3.3: Testing: Flip an image ............................................................................................. 9
-
-Section 3.3.4: Testing: Scale an image ........................................................................................... 9
-
-Section 3.3.5: Testing: Rotate an image......................................................................................... 9
-
-Section 3.3.6: Testing: Gray-level mappings .................................................................................. 9
-
-Section 3.3.7: Testing: Histogram calculations............................................................................. 10
-
-Section 3.3.8: Testing: Convolution.............................................................................................. 10
-
-Section 3.3.9: Testing: Non-linear filtering................................................................................... 10
-
-Section 3.4: Analysis of Results ........................................................................................................ 10
-
-Section 3.4.1: Performances ........................................................................................................ 10
-Section 3.4.2: Weakness .............................................................................................................. 10
-
-Section 3.4 Technical Discussion on Diﬀerent Functionalities .......................................................... 10
-
-Section 3.5 Future Work.................................................................................................................... 10
-
-2
 
 
 
-
-<a name="br3"></a>Section 1: User’s Manual
+Section 1: User’s Manual
 
 Section 1.1: What the program does.
 
@@ -434,8 +360,7 @@ it was also working fast and working as expected.
 
 
 
-
-<a name="br10"></a>Section 3.3.9: Testing: Convolution
+Section 3.3.9: Testing: Convolution
 
 To test this, I applied the standard convolution kernel for blurring to both colored and
 grayscale images, the image seemed blurred on the output, even though the speed in
