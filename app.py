@@ -150,7 +150,7 @@ def linearMapImage():
     
     img = cv2.imread("static/img/" + new_filename)
 
-    output_image = linear_gray_level_mapping(img, float(a), int(b))
+    output_image = linear_gray_level_mapping(img, float(a), float(b))
     
     cv2.imwrite("static/img/" + new_filename, output_image)
 
@@ -182,6 +182,19 @@ def powerLawMapImage():
 def calculateHistogram():
     print("Post request have been invoked in app.js for calculating the histogram of an image. ")
     # Code to run the specific function goes here
+    
+    img = cv2.imread("static/img/" + new_filename)
+
+    histogram = calculate_histogram_grayscale(img)
+
+
+    print("\n\n\n")
+    print("************ THE HISTOGRAM ****************")
+    print(histogram)
+    print("*******************************************")
+    print("\n\n")
+
+
     return "Function executed successfully"
 
 
@@ -196,7 +209,6 @@ def equalizeHistogram():
     print("Calculated histogram equalization")
 
     cv2.imwrite("static/img/" + new_filename, output_image)
-
 
 
     # Code to run the specific function goes here

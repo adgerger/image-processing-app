@@ -65,29 +65,28 @@ window.onload = function() {
           .catch(error => console.error(error));
     
       }
-    
-    
-    
-    function histogramHandler() {
-        console.log("histogramHandler invoked on javascript.");
-    
-        fetch('/calculateHistogram', {
-            method: 'POST',
-            headers: {
-              'Content-Type': 'application/json;charset=UTF-8'
-            }
-          })
-          .then(response => response.text())
-          .then(result => console.log(result))
-          .catch(error => console.error(error));
-    
-      }
-    
-    
 
     
 
 };
+
+
+function histogramHandler() {
+  console.log("histogramHandler invoked on javascript.");
+
+  fetch('/calculateHistogram', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json;charset=UTF-8'
+      }
+    })
+    .then(response => response.text())
+    .then(result => {console.log(result); window.location.reload();})
+    .catch(error => console.error(error));
+
+}
+
+
 
 function equalizeHistogramHandler() {
   console.log("equalizeHistogramHandler invoked on javascript.");
